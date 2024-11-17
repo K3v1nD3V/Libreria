@@ -1,0 +1,50 @@
+﻿@model Libreria.Models.Editoriale
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1 class="text-center">Detalles de Editorial</h1>
+
+<div class="form-container">
+    <div class="col-md-4 form-background">
+        <h4 class="text-center">Editorial</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-4 control-label">
+                @Html.DisplayNameFor(model => model.Nombres)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.Nombres)
+            </dd>
+            <dt class="col-sm-4 control-label">
+                @Html.DisplayNameFor(model => model.Telefono)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.Telefono)
+            </dd>
+            <dt class="col-sm-4 control-label">
+                @Html.DisplayNameFor(model => model.Direccion)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.Direccion)
+            </dd>
+            <dt class="col-sm-4 control-label">
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+            <dt class="col-sm-4 control-label">
+                @Html.DisplayNameFor(model => model.Sitioweb)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.Sitioweb)
+            </dd>
+        </dl>
+        <div class="d-flex justify-content-end">
+            <a asp-action="Edit" asp-route-id="@Model?.Nit" class="btn btn-info">Editar</a>
+            <a asp-action="Index" class="btn btn-secondary">Volver</a>
+        </div>
+    </div>
+</div>

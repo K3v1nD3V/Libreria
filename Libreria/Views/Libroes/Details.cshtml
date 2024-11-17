@@ -1,0 +1,62 @@
+﻿@model Libreria.Models.Libro
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1 class="text-center">Detalles de Libro</h1>
+
+<div class="form-container">
+    <div class="col-md-4 form-background">
+        <h4 class="text-center">Libro</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-4 control-label">
+                @Html.DisplayNameFor(model => model.Titulo)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.Titulo)
+            </dd>
+            <dt class="col-sm-4 control-label">
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.Descripcion)
+            </dd>
+            <dt class="col-sm-4 control-label">
+                @Html.DisplayNameFor(model => model.NombreAutor)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.NombreAutor)
+            </dd>
+            <dt class="col-sm-4 control-label">
+                @Html.DisplayNameFor(model => model.Publicacion)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.Publicacion)
+            </dd>
+            <dt class="col-sm-4 control-label">
+                @Html.DisplayNameFor(model => model.FechaRegistro)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.FechaRegistro)
+            </dd>
+            <dt class="col-sm-4 control-label">
+                Categoria
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.CodigoCategoriaNavigation.Nombre)
+            </dd>
+            <dt class="col-sm-4 control-label">
+                Editorial
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.NitEditorialNavigation.Nombres)
+            </dd>
+        </dl>
+        <div class="d-flex justify-content-end">
+            <a asp-action="Edit" asp-route-id="@Model?.Isbn" class="btn btn-info">Editar</a>
+            <a asp-action="Index" class="btn btn-secondary">Volver</a>
+        </div>
+    </div>
+</div>

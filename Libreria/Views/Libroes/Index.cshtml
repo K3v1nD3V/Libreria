@@ -1,0 +1,78 @@
+﻿@model IEnumerable<Libreria.Models.Libro>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Libros</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Registrar</a>
+</p>
+@Html.AntiForgeryToken()
+<table class="table" id="Libros">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Titulo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NombreAutor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Publicacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FechaRegistro)
+            </th>
+            <th>
+                Categoria
+            </th>
+            <th>
+                Editorial
+            </th>
+            <th>
+                Acciones
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Titulo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombreAutor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Publicacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaRegistro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CodigoCategoriaNavigation.Nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NitEditorialNavigation.Nombres)
+            </td>
+            <td>
+                    <a asp-action="Edit" asp-route-id="@item.Isbn" class="btn btn-sm btn-info">Editar</a> 
+                    <a asp-action="Details" asp-route-id="@item.Isbn" class="btn btn-sm btn-warning">Detalles</a> 
+                    <a href="javascript:void(0);" onclick="confirmDelete('@Url.Action("DeleteConfirmed", "Libroes", new { id = item.Isbn })', this)" class="btn btn-sm btn-danger">Eliminar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<script src="~/js/site.js"></script>
+<script>
+    createDataTable("Libros");
+</script>

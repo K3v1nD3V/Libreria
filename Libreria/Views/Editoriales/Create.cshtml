@@ -1,0 +1,56 @@
+﻿@model Libreria.Models.Editoriale
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1 class="text-center">Registrar Editorial</h1>
+<hr />
+<div class="form-container">
+    <div class="col-md-4 form-background">
+        <form id="createEditorialForm" asp-action="Create" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Nombres" class="control-label"></label>
+                <input asp-for="Nombres" class="form-control" />
+                <span asp-validation-for="Nombres" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Telefono" class="control-label"></label>
+                <input asp-for="Telefono" class="form-control" />
+                <span asp-validation-for="Telefono" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Direccion" class="control-label"></label>
+                <input asp-for="Direccion" class="form-control" />
+                <span asp-validation-for="Direccion" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sitioweb" class="control-label"></label>
+                <input asp-for="Sitioweb" class="form-control" />
+                <span asp-validation-for="Sitioweb" class="text-danger"></span>
+            </div>
+            <div class="form-group d-flex justify-content-between">
+                <input type="submit" value="Registrar" class="btn btn-primary" />
+                <a asp-action="Index" class="btn btn-secondary">Volver</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="~/js/site.js"></script>
+    <script>
+        handleFormSubmit('#createEditorialForm', '@Url.Action("Index", "Editoriales")');
+    </script>
+}

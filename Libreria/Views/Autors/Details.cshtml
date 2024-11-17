@@ -1,0 +1,37 @@
+﻿@model Libreria.Models.Autor
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1 class="text-center">Detalles de Autor</h1>
+
+<div class="form-container">
+    <div class="col-md-4 form-background">
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-4 control-label">
+                @Html.DisplayNameFor(model => model.Nombre)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.Nombre)
+            </dd>
+            <dt class="col-sm-4 control-label">
+                @Html.DisplayNameFor(model => model.Apellido)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.Apellido)
+            </dd>
+            <dt class="col-sm-4 control-label">
+                @Html.DisplayNameFor(model => model.Nacionalidad)
+            </dt>
+            <dd class="col-sm-8">
+                @Html.DisplayFor(model => model.Nacionalidad)
+            </dd>
+        </dl>
+        <div class="d-flex justify-content-end">
+            <a asp-action="Edit" asp-route-id="@Model?.IdAutor" class="btn btn-info">Edit</a>
+            <a asp-action="Index" class="btn btn-secondary">Volver</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Libreria.Models.Autor>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Autores</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Registrar</a>
+</p>
+@Html.AntiForgeryToken()
+<table class="table" id="Autores">
+    <thead>
+        <tr>
+            <th>@Html.DisplayNameFor(model => model.Nombre)</th>
+            <th>@Html.DisplayNameFor(model => model.Apellido)</th>
+            <th>@Html.DisplayNameFor(model => model.Nacionalidad)</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@Html.DisplayFor(modelItem => item.Nombre)</td>
+                <td>@Html.DisplayFor(modelItem => item.Apellido)</td>
+                <td>@Html.DisplayFor(modelItem => item.Nacionalidad)</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.IdAutor" class="btn btn-sm btn-info">Editar</a>
+                    <a asp-action="Details" asp-route-id="@item.IdAutor" class="btn btn-sm btn-warning">Detalles</a>
+                    <a href="javascript:void(0);" onclick="confirmDelete('@Url.Action("DeleteConfirmed", "Autors", new { id = item.IdAutor })', this)" class="btn btn-sm btn-danger">Eliminar</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<script src="~/js/site.js"></script>
+<script>
+    createDataTable("Autores");
+</script>
