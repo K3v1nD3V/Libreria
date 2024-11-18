@@ -2,6 +2,10 @@ html {
   font-size: 14px;
 }
 
+*{
+    box-sizing: border-box;
+}
+
 @media (min-width: 768px) {
   html {
     font-size: 16px;
@@ -56,8 +60,10 @@ html {
     }
 
 .botones {
-    background: black;
+    background: #212529;
     color: white;
+    padding: 10px;
+    height: 55px;
 }
 .botones:hover{
     color:gray;
@@ -212,11 +218,28 @@ html {
 .table .btn-sm {
     margin: 0.2rem;
 }
-.dt-search{
-    display:inline;
+.dt-search {
+    background: #212529;
+    color: white;
+    padding: 10px;
+    height: 55px;
+    border-radius: 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+.dt-input {
+    background: white !important;
+}
+.dt-search input,
+.dt-search label {
+    color: white !important;
+}
+.dt-column-title{
+    display:flex;
+    justify-content:center;
 }
 /* Estilos para Formularios */
-
 .form-container {
     display: flex;
     justify-content: center;
